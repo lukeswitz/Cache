@@ -1,3 +1,4 @@
+#if os(OSX)
 import Cocoa
 
 extension TestHelper {
@@ -9,3 +10,4 @@ extension TestHelper {
     return image
   }
 }
+#endif

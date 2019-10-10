@@ -11,6 +11,7 @@ public class TransformerFactory {
 
   public static func forImage() -> Transformer<Image> {
     let toData: (Image) throws -> Data = { image in
+        let thing = try image.cache_toData()
       return try image.cache_toData().unwrapOrThrow(error: StorageError.transformerFail)
     }
 
@@ -34,5 +35,15 @@ public class TransformerFactory {
     }
 
     return Transformer<U>(toData: toData, fromData: fromData)
+  }
+}
+
+private extension Optional {
+  func unwrapOrThrow(error: Error) throws -> Wrapped {
+    if let value = self {
+      return value
+    } else {
+      throw error
+    }
   }
 }

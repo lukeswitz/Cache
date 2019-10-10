@@ -1,3 +1,4 @@
+#if os(OSX)
 import AppKit
 
 /// Helper UIImage extension.
@@ -34,3 +35,4 @@ extension NSImage {
       .representation(using: imageFileType, properties: [:])
   }
 }
+#endif
