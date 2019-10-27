@@ -13,11 +13,12 @@ let package = Package(
     targets: [
         .target(
             name: "Cache",
-            path: "Source/Shared",
-            exclude: ["Library/ImageWrapper.swift"]), // relative to the target path
+            path: "Source",
+            exclude: ["Library/ImageWrapper.swift"]),
         .testTarget(
             name: "CacheTests",
             dependencies: ["Cache"],
             path: "Tests"),
-    ]
+    ],
+     swiftLanguageVersions: [.v5]
 )
